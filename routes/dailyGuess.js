@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const wordList = require("../consts/index.js");
-const { getWordleResponse } = require("../helpers/index");
+const { isWordValid, getWordleResponse } = require("../helpers/index");
 
 let dailyWord = wordList[Math.floor(Math.random() * wordList.length)];
 
@@ -19,6 +19,12 @@ router.route("/").get((req, res) => {
   const guess = req.query.guess;
   const guessArray = guess.split("");
   const dailyWordArray = dailyWord.split("");
+
+  if (!isWordValid(guess)) {
+    res.json({
+      error: "Word doesn't exist.",
+    });
+  }
 
   const response = getWordleResponse(guessArray, dailyWordArray);
 
