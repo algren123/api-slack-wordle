@@ -1,6 +1,6 @@
 module.exports = {
   getWordleResponse: function (guessArray, dailyWordArray) {
-    guessArray.map((letter, i) => {
+    return guessArray.map((letter, i) => {
       let result = "";
 
       if (letter === dailyWordArray[i]) {
