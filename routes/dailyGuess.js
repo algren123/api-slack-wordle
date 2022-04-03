@@ -7,7 +7,7 @@ let dailyWord = wordList[Math.floor(Math.random() * wordList.length)];
 const initDailyWord = () => {
   const d = new Date();
 
-  if (d.getHours() === 0) {
+  if (d.getHours() === 0 && d.getMinutes() === 0) {
     wordList.splice(wordList?.indexOf(dailyWord), 1);
     dailyWord = wordList[Math.floor(Math.random() * wordList.length)];
   }
