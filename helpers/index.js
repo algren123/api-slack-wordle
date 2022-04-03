@@ -1,8 +1,8 @@
-const wordList = require("../consts/index");
+const { allWordList } = require("../consts/index");
 
 module.exports = {
   isWordValid: function (guess) {
-    return wordList.includes(guess);
+    return allWordList.includes(guess);
   },
   getWordleResponse: function (guessArray, dailyWordArray) {
     return guessArray.map((letter, i) => {
