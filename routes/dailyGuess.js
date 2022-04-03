@@ -21,7 +21,7 @@ router.route("/").get((req, res) => {
   const dailyWordArray = dailyWord.split("");
 
   if (!isWordValid(guess)) {
-    res.json({
+    return res.json({
       error: "Word doesn't exist.",
     });
   }
